@@ -1,9 +1,7 @@
 
 http://home.thep.lu.se/Pythia/pythia82html/PythonInterface.html
 
-~/pythia8235$ ./configure --enable-shared --with-root=$ROOTSYS --with-hepmc2=/home/andre/hepmc/install 
---with-fastjet3=/home/andre/fastjet/fastjet-3.3.0/fastjet-install --with-python-include=/usr/include/python3.6 
---with-python-bin=/usr/bin
+~/pythia8235$ ./configure --enable-shared --with-root=$ROOTSYS --with-hepmc2=/home/andre/hepmc/install --with-fastjet3=/home/andre/fastjet/fastjet-3.3.0/fastjet-install --with-python-include=/usr/include/python3.6 --with-python-bin=/usr/bin
 ---------------------------------------------------------------------
 |                    PYTHIA Configuration Summary                   |
 ---------------------------------------------------------------------
