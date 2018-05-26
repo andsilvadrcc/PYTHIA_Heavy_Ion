@@ -46,7 +46,6 @@ export PYTHONPATH=$PYTHIA8/lib:$PYTHONPATH
 export LD_LIBRARY_PATH=$PYTHIA8/lib:$LD_LIBRARY_PATH
 #end of My variables
 
-MY PROBLEM
 
 andre@andre-QBEX-H61H2-M17:~/pythia8230/examples$ python3 main01.py
 
