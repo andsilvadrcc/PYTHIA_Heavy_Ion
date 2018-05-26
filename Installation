@@ -3,6 +3,12 @@ Running pythia standalone! link to ROOT library.
 
 http://home.thep.lu.se/Pythia/pythia82html/PythonInterface.html
 
+Download, extract, configuration and install:
+
+wget http://home.thep.lu.se/~torbjorn/pythia8/pythia8230.tgz
+tar -zxf pythia8230.tgz
+cd pythia8230
+
 ~/pythia8230$ ./configure --enable-shared --with-root=$ROOTSYS --with-hepmc2=/home/andre/hepmc/install --with-fastjet3=/home/andre/fastjet/fastjet-3.3.0/fastjet-install --with-python-include=/usr/include/python3.6 --with-python-bin=/usr/bin
 ---------------------------------------------------------------------
 |                    PYTHIA Configuration Summary                   |
