@@ -1,4 +1,9 @@
-~/pythia8235$ ./configure --enable-shared --with-root=$ROOTSYS --with-hepmc2=/home/andre/hepmc/install --with-fastjet3=/home/andre/fastjet/fastjet-3.3.0/fastjet-install --with-python-include=/usr/include/python3.6 --with-python-bin=/usr/bin
+
+http://home.thep.lu.se/Pythia/pythia82html/PythonInterface.html
+
+~/pythia8235$ ./configure --enable-shared --with-root=$ROOTSYS --with-hepmc2=/home/andre/hepmc/install 
+--with-fastjet3=/home/andre/fastjet/fastjet-3.3.0/fastjet-install --with-python-include=/usr/include/python3.6 
+--with-python-bin=/usr/bin
 ---------------------------------------------------------------------
 |                    PYTHIA Configuration Summary                   |
 ---------------------------------------------------------------------
@@ -26,3 +31,37 @@ rsync -a include/* /home/andre/pythia8235/include --exclude .svn
 rsync -a lib/* /home/andre/pythia8235/lib --exclude .svn
 rsync -a share/Pythia8/* /home/andre/pythia8235/share/Pythia8 --exclude .svn
 rsync -a examples /home/andre/pythia8235/share/Pythia8 --exclude .svn
+
+andre@andre-QBEX-H61H2-M17:~/pythia8235/lib$ ls 
+libpythia8.a  __pycache__  pythia8.py  pythia8.pyc  _pythia8.so
+
+In the bashrc :
+
+#Pythia/root Env. Variables
+export PYTHIA8=/home/andre/pythia8235
+export PYTHIA8DATA=$PYTHIA8/xmldoc
+export ROOTSYS=/opt/root6
+export PATH=$ROOTSYS/bin:$PATH
+export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$ROOTSYS/lib:$PYTHONPATH 
+export PYTHONPATH=$PYTHIA8/lib:$PYTHONPATH
+export LD_LIBRARY_PATH=$PYTHIA8/lib:$LD_LIBRARY_PATH
+#end of My variables
+
+MY PROBLEM
+
+andre@andre-QBEX-H61H2-M17:~/pythia8235/examples$ python main01.py
+
+Traceback (most recent call last):
+  File "main01.py", line 23, in <module>
+    import pythia8
+  File "/home/andre/pythia8235/lib/pythia8.py", line 104, in <module>
+    _pythia8 = swig_import_helper()
+  File "/home/andre/pythia8235/lib/pythia8.py", line 100, in swig_import_helper
+    _mod = imp.load_module('_pythia8', fp, pathname, description)
+  File "/home/andre/anaconda3/lib/python3.6/imp.py", line 243, in load_module
+    return load_dynamic(name, filename, file)
+  File "/home/andre/anaconda3/lib/python3.6/imp.py", line 343, in load_dynamic
+    return _load(spec)
+ImportError: libpythia8.so: cannot open shared object file: No such file or directory
+
