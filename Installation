@@ -1,0 +1,28 @@
+~/pythia8235$ ./configure --enable-shared --with-root=$ROOTSYS --with-hepmc2=/home/andre/hepmc/install --with-fastjet3=/home/andre/fastjet/fastjet-3.3.0/fastjet-install --with-python-include=/usr/include/python3.6 --with-python-bin=/usr/bin
+---------------------------------------------------------------------
+|                    PYTHIA Configuration Summary                   |
+---------------------------------------------------------------------
+Configured for LINUX with the following options:
+--enable-shared
+
+The following optional external packages will be used:
+* FASTJET3
+* HEPMC2
+* ROOT
+* PYTHON
+
+andre@andre-QBEX-H61H2-M17:~/pythia8235$ sudo make -j4 && sudo make install
+g++ src/Pythia.cc -o tmp/Pythia.o -c -MD -Iinclude -O2  -pedantic -W -Wall -Wshadow -fPIC -DXMLDIR=\"/home/andre/pythia8235/share/Pythia8/xmldoc\"
+cp Makefile.inc share/Pythia8/../../examples/Makefile.inc
+rm -f lib/libpythia8.so
+g++ tmp/Analysis.o tmp/Basics.o tmp/BeamParticle.o tmp/BeamRemnants.o tmp/BeamShape.o tmp/BoseEinstein.o tmp/ColourReconnection.o tmp/ColourTracing.o tmp/Event.o tmp/FJcore.o tmp/FragmentationFlavZpT.o tmp/FragmentationSystems.o tmp/GammaKinematics.o tmp/HIUserHooks.o tmp/HadronLevel.o tmp/HadronScatter.o tmp/HardDiffraction.o tmp/HeavyIons.o tmp/HelicityBasics.o tmp/HelicityMatrixElements.o tmp/HiddenValleyFragmentation.o tmp/History.o tmp/Info.o tmp/JunctionSplitting.o tmp/LHEF3.o tmp/LesHouches.o tmp/Merging.o tmp/MergingHooks.o tmp/MiniStringFragmentation.o tmp/MultipartonInteractions.o tmp/ParticleData.o tmp/ParticleDecays.o tmp/PartonDistributions.o tmp/PartonLevel.o tmp/PartonSystems.o tmp/PartonVertex.o tmp/PhaseSpace.o tmp/ProcessContainer.o tmp/ProcessLevel.o tmp/Pythia.o tmp/PythiaStdlib.o tmp/RHadrons.o tmp/ResonanceDecays.o tmp/ResonanceWidths.o tmp/ResonanceWidthsDM.o tmp/Ropewalk.o tmp/SLHAinterface.o tmp/Settings.o tmp/SigmaCompositeness.o tmp/SigmaDM.o tmp/SigmaEW.o tmp/SigmaExtraDim.o tmp/SigmaGeneric.o tmp/SigmaHiggs.o tmp/SigmaLeftRightSym.o tmp/SigmaLeptoquark.o tmp/SigmaNewGaugeBosons.o tmp/SigmaOnia.o tmp/SigmaProcess.o tmp/SigmaQCD.o tmp/SigmaSUSY.o tmp/SigmaTotal.o tmp/SpaceShower.o tmp/StandardModel.o tmp/Streams.o tmp/StringFragmentation.o tmp/StringLength.o tmp/SusyCouplings.o tmp/SusyLesHouches.o tmp/SusyResonanceWidths.o tmp/SusyWidthFunctions.o tmp/TauDecays.o tmp/TimeShower.o tmp/UserHooks.o tmp/WeakShowerMEs.o -o lib/libpythia8.so -Iinclude -O2  -pedantic -W -Wall -Wshadow -fPIC -shared -Wl,-soname,libpythia8.so\
+  -Wl,-rpath,/home/andre/pythia8235/lib -ldl
+ar cru lib/libpythia8.a tmp/Analysis.o tmp/Basics.o tmp/BeamParticle.o tmp/BeamRemnants.o tmp/BeamShape.o tmp/BoseEinstein.o tmp/ColourReconnection.o tmp/ColourTracing.o tmp/Event.o tmp/FJcore.o tmp/FragmentationFlavZpT.o tmp/FragmentationSystems.o tmp/GammaKinematics.o tmp/HIUserHooks.o tmp/HadronLevel.o tmp/HadronScatter.o tmp/HardDiffraction.o tmp/HeavyIons.o tmp/HelicityBasics.o tmp/HelicityMatrixElements.o tmp/HiddenValleyFragmentation.o tmp/History.o tmp/Info.o tmp/JunctionSplitting.o tmp/LHEF3.o tmp/LesHouches.o tmp/Merging.o tmp/MergingHooks.o tmp/MiniStringFragmentation.o tmp/MultipartonInteractions.o tmp/ParticleData.o tmp/ParticleDecays.o tmp/PartonDistributions.o tmp/PartonLevel.o tmp/PartonSystems.o tmp/PartonVertex.o tmp/PhaseSpace.o tmp/ProcessContainer.o tmp/ProcessLevel.o tmp/Pythia.o tmp/PythiaStdlib.o tmp/RHadrons.o tmp/ResonanceDecays.o tmp/ResonanceWidths.o tmp/ResonanceWidthsDM.o tmp/Ropewalk.o tmp/SLHAinterface.o tmp/Settings.o tmp/SigmaCompositeness.o tmp/SigmaDM.o tmp/SigmaEW.o tmp/SigmaExtraDim.o tmp/SigmaGeneric.o tmp/SigmaHiggs.o tmp/SigmaLeftRightSym.o tmp/SigmaLeptoquark.o tmp/SigmaNewGaugeBosons.o tmp/SigmaOnia.o tmp/SigmaProcess.o tmp/SigmaQCD.o tmp/SigmaSUSY.o tmp/SigmaTotal.o tmp/SpaceShower.o tmp/StandardModel.o tmp/Streams.o tmp/StringFragmentation.o tmp/StringLength.o tmp/SusyCouplings.o tmp/SusyLesHouches.o tmp/SusyResonanceWidths.o tmp/SusyWidthFunctions.o tmp/TauDecays.o tmp/TimeShower.o tmp/UserHooks.o tmp/WeakShowerMEs.o
+ar: `u' modifier ignored since `D' is the default (see `U')
+mkdir -p /home/andre/pythia8235/bin /home/andre/pythia8235/include /home/andre/pythia8235/lib /home/andre/pythia8235/share/Pythia8
+rm -f /home/andre/pythia8235/lib/libpythia8.so
+rsync -a bin/* /home/andre/pythia8235/bin --exclude .svn
+rsync -a include/* /home/andre/pythia8235/include --exclude .svn
+rsync -a lib/* /home/andre/pythia8235/lib --exclude .svn
+rsync -a share/Pythia8/* /home/andre/pythia8235/share/Pythia8 --exclude .svn
+rsync -a examples /home/andre/pythia8235/share/Pythia8 --exclude .svn
