@@ -36,4 +36,52 @@ bashrc:
 export ROOTSYS=/home/andsilva/build
 export PYTHIA8=/home/ansilva/pythia8235
 source /home/andsilva/build/bin/thisroot.sh
+source loadmodules.sh
+source /home/drc01/daviddc/andsilva/build/bin/thisroot.sh
+export LD_LIBRARY_PATH=/home/drc01/daviddc/andsilva/YODA-build/lib:/home/drc01/daviddc/andsilva/build/lib:$LD_LIBRARY_PATH
+export CPATH=/home/drc01/daviddc/andsilva/YODA-build/include:$CPATH
+export PATH=/home/drc01/daviddc/andsilva/parallel-20190522/src:$PATH
+export PATH=/home/drc01/daviddc/andsilva/cmake-3.15.0-rc2/bin:$PATH
+export XPM=/usr/lib64
+export CC=/home/sw/gcc/masternode2/gcc/550/install/bin/gcc
+export CXX=/home/sw/gcc/masternode2/gcc/550/install/bin/g++
+
+-----------------------------------------------------------------------------------
+
+Install cmake
+
+wget https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6.tar.gz
+tar xf cmake-3.16.6.tar.gz
+cd cmake-3.16.6
+./configure
+make -j4 && make install
+
+-----------------------------------------------------------------------------------
+
+install g++:
+wget https://ftpmirror.gnu.org/gcc/gcc-9.1.0/gcc-9.1.0.tar.gz
+tar xf gcc-9.1.0.tar.gz
+cd gcc-9.1.0
+
+cd ~
+mkdir build && cd build
+../gcc-9.1.0/configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-9.1 --enable-checking=release --enable-languages=c,c++,fortran --disable-multilib --program-suffix=-9.1
+
+-----------------------------------------------------------------------------------
+Install root:
+
+https://willian-m.github.io/root/guide/2020/01/06/Install-ROOT.html:
+
+git clone http://github.com/root-project/root.git
+cmake -Dbuiltin_xrootd=ON -DCMAKE_INSTALL_PREFIX=$HOME/.local path/to/source
+cmake --build . -- -jN
+cmake --build . --target install
+
+-----------------------------------------------------------------------------------
+
+
+bashrc: 
+
+alias root="root-l"
+
   
