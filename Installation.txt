@@ -1,0 +1,39 @@
+####################################
+# PYTHIA with YODA
+####################################
+
+\Author: Andre V. da Silva.
+
+YODA package
+
+Manual installation:
+
+Downalod YODA source: https://yoda.hepforge.org/downloads/ 
+
+wget http://www.hepforge.org/archive/yoda/YODA-X.Y.Z.tar.gz
+tar xf YODA-X.Y.Z.tar.gz
+cd YODA-X.Y.Z.tar.gz
+./configure --prefix=/path/to/pythiasource/ --with-boost=$BOOSTPATH
+make && make install
+
+
+Running pythia standalone! link to ROOT library.
+
+http://home.thep.lu.se/Pythia/pythia82html/PythonInterface.html
+
+Download, extract, configuration and install:
+
+wget http://home.thep.lu.se/~torbjorn/pythia8/pythiaXXXX.tgz
+tar -zxf pythiaXXXX.tgz
+cd pythiaXXX
+
+~/pythiaXXXX$ ./configure --enable-shared --with-root=$ROOTSYS
+
+make -j4 && make install
+
+bashrc:
+
+export ROOTSYS=/home/andsilva/build
+export PYTHIA8=/home/ansilva/pythia8235
+source /home/andsilva/build/bin/thisroot.sh
+  
